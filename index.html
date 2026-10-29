@@ -1,0 +1,895 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora | Digital Solutions</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #080d1c;
+    --card: #111a30;
+    --purple: #8b5cf6;
+    --cyan: #22d3ee;
+    --white: #f8fafc;
+    --muted: #a5b0c5;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 13, 28, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #ffffff12;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(110deg, var(--purple), #5b7cfa);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #8b5cf655;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    color: white;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 610px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 80% 40%, #5b21b633, transparent 45%),
+        radial-gradient(ellipse at 10% 80%, #0891b222, transparent 40%);
+}
+
+.hero-content {
+    max-width: 700px;
+    padding: 90px 0;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--cyan);
+    background: #22d3ee12;
+    border: 1px solid #22d3ee44;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.12;
+    margin-bottom: 22px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--cyan), #b794ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 570px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    border: 1px solid #ffffff40;
+    padding: 12px 23px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.hero-note {
+    margin-top: 45px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* COMMON SECTIONS */
+
+section {
+    padding: 85px 0;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 45px;
+}
+
+.section-title h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: linear-gradient(145deg, #141e36, #0d1427);
+    padding: 28px;
+    border: 1px solid #ffffff12;
+    border-radius: 16px;
+    transition: 0.35s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #8b5cf677;
+    box-shadow: 0 15px 40px #0003;
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #8b5cf622;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* ABOUT */
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-box {
+    min-height: 330px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 30% 30%, #8b5cf655, transparent 40%),
+        linear-gradient(135deg, #152440, #10162c);
+    border: 1px solid #ffffff14;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.about-symbol {
+    font-size: 90px;
+}
+
+.about-box h3 {
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.check {
+    margin: 12px 0;
+    color: #dbeafe;
+}
+
+.check span {
+    color: var(--cyan);
+    margin-right: 10px;
+}
+
+/* PROJECTS */
+
+.projects {
+    background: #0b1122;
+}
+
+.project-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.project-visual {
+    min-height: 185px;
+    display: grid;
+    place-items: center;
+    font-size: 65px;
+}
+
+.visual-one {
+    background: linear-gradient(135deg, #312e81, #7c3aed);
+}
+
+.visual-two {
+    background: linear-gradient(135deg, #164e63, #0891b2);
+}
+
+.visual-three {
+    background: linear-gradient(135deg, #831843, #db2777);
+}
+
+.project-info {
+    padding: 24px;
+}
+
+.project-info small {
+    color: var(--cyan);
+}
+
+/* STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 42px;
+    color: var(--cyan);
+}
+
+.stat p {
+    color: var(--muted);
+}
+
+/* TESTIMONIAL */
+
+.quote {
+    max-width: 780px;
+    margin: auto;
+    text-align: center;
+    padding: 35px;
+}
+
+.quote-mark {
+    font-size: 55px;
+    color: var(--purple);
+}
+
+.quote p {
+    font-size: 21px;
+    color: #d7deec;
+    margin-bottom: 22px;
+}
+
+.quote h4 {
+    color: var(--cyan);
+}
+
+/* CONTACT */
+
+.contact {
+    background:
+        radial-gradient(ellipse at 50% 100%, #4c1d9550, transparent 55%);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 40px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin: 15px 0;
+}
+
+.contact-form {
+    background: var(--card);
+    border: 1px solid #ffffff15;
+    padding: 28px;
+    border-radius: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin: 12px 0 7px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 13px;
+    background: #080f20;
+    color: white;
+    border: 1px solid #ffffff22;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--purple);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    width: 100%;
+    margin-top: 18px;
+}
+
+#formMessage {
+    display: none;
+    color: #67e8b0;
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #ffffff15;
+    padding: 28px 0;
+    color: var(--muted);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #0c1428;
+        padding: 25px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        border-bottom: 1px solid #ffffff15;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-layout, .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .quote {
+        padding: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="container">
+        <nav>
+            <a href="#home" class="logo">NEX<span>ORA.</span></a>
+
+            <button class="menu-btn" id="menuBtn"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false">☰</button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact" class="btn">Let's Talk ↗</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <span class="tag">✦ YOUR DIGITAL GROWTH PARTNER</span>
+
+            <h1>
+                We Build Digital
+                <span class="gradient-text">Experiences</span>
+                That Matter.
+            </h1>
+
+            <p>
+                We help businesses grow with innovative technology,
+                beautiful design, and smart digital solutions that
+                turn ideas into reality.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#services" class="btn">Explore Services →</a>
+                <a href="#projects" class="btn-outline">View Our Work ↗</a>
+            </div>
+
+            <div class="hero-note">
+                🚀 Creative ideas. Powerful technology. Real possibilities.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="container">
+        <div class="section-title">
+            <span class="tag">WHAT WE DO</span>
+            <h2>Solutions for a <span class="gradient-text">Digital World</span></h2>
+            <p>Everything you need to build, launch, and grow your business online.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Web Development</h3>
+                <p>Fast, responsive, and modern websites designed to deliver an excellent user experience.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>UI/UX Design</h3>
+                <p>Clean and engaging interfaces that make digital products simple and enjoyable to use.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>App Development</h3>
+                <p>Mobile and web applications built around your business goals and customer needs.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>AI Solutions</h3>
+                <p>Explore automation and intelligent tools to improve workflows and productivity.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📈</div>
+                <h3>Digital Marketing</h3>
+                <p>Reach the right audience through strategic digital campaigns and online growth.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">☁️</div>
+                <h3>Cloud Solutions</h3>
+                <p>Build scalable digital services with modern cloud infrastructure and deployment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container about-layout">
+        <div class="about-box">
+            <div>
+                <div class="about-symbol">🌐</div>
+                <h3>Ideas into Impact</h3>
+                <p style="color: #bdc8de;">Design · Technology · Innovation</p>
+            </div>
+        </div>
+
+        <div class="about-text">
+            <span class="tag">ABOUT NEXORA</span>
+            <h2>We Turn Your Vision Into <span class="gradient-text">Reality</span></h2>
+            <p>
+                Nexora is a sample digital solutions company focused on
+                helping businesses establish and improve their online presence.
+                We combine creative thinking with modern technology.
+            </p>
+            <p>
+                From a simple business website to a custom digital product,
+                our goal is to create useful, accessible, and attractive solutions.
+            </p>
+
+            <div class="check"><span>✓</span> Modern and responsive design</div>
+            <div class="check"><span>✓</span> User-focused solutions</div>
+            <div class="check"><span>✓</span> Quality-driven development</div>
+
+            <a href="#contact" class="btn" style="margin-top: 22px;">
+                Work With Us →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+    <div class="container">
+        <div class="section-title">
+            <span class="tag">OUR PORTFOLIO</span>
+            <h2>Ideas Made <span class="gradient-text">Visible</span></h2>
+            <p>Example project concepts showing the types of solutions we can create.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card project-card">
+                <div class="project-visual visual-one">🛍️</div>
+                <div class="project-info">
+                    <small>WEB DEVELOPMENT</small>
+                    <h3>E-Commerce Platform</h3>
+                    <p>A clean online shopping experience for modern brands.</p>
+                </div>
+            </div>
+
+            <div class="card project-card">
+                <div class="project-visual visual-two">📊</div>
+                <div class="project-info">
+                    <small>WEB APPLICATION</small>
+                    <h3>Analytics Dashboard</h3>
+                    <p>A sample dashboard concept for understanding business data.</p>
+                </div>
+            </div>
+
+            <div class="card project-card">
+                <div class="project-visual visual-three">📲</div>
+                <div class="project-info">
+                    <small>APP DESIGN</small>
+                    <h3>Mobile App Concept</h3>
+                    <p>A modern mobile interface focused on ease of use.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section>
+    <div class="container">
+        <div class="stats">
+            <div class="stat">
+                <h3 data-target="25">0</h3>
+                <p>Project Ideas</p>
+            </div>
+            <div class="stat">
+                <h3 data-target="12">0</h3>
+                <p>Service Concepts</p>
+            </div>
+            <div class="stat">
+                <h3 data-target="8">0</h3>
+                <p>Team Members*</p>
+            </div>
+            <div class="stat">
+                <h3 data-target="100">0</h3>
+                <p>Percent Commitment</p>
+            </div>
+        </div>
+        <p style="text-align:center;color:var(--muted);font-size:12px;margin-top:18px;">
+            *Sample demonstration figures, not verified company statistics.
+        </p>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section style="background:#0b1122;">
+    <div class="container">
+        <div class="section-title">
+            <span class="tag">OUR APPROACH</span>
+            <h2>Built Around <span class="gradient-text">Your Goals</span></h2>
+        </div>
+
+        <div class="quote">
+            <div class="quote-mark">“</div>
+            <p>
+                Great digital experiences start with understanding people,
+                solving real problems, and paying attention to every detail.
+            </p>
+            <h4>The Nexora Approach</h4>
+            <small style="color:var(--muted);">Design with purpose · Build with care</small>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <span class="tag">GET IN TOUCH</span>
+            <h2>Let's Create Something <span class="gradient-text">Great</span></h2>
+            <p>Tell us about your idea and the kind of solution you need.</p>
+        </div>
+
+        <div class="contact-layout">
+            <div class="contact-info">
+                <h2>Have a project in mind?</h2>
+                <p>Send us your requirements using the form. We would love to learn about your project.</p>
+                <p>📧 Email: hello@example.com</p>
+                <p>📍 Location: Bengaluru, India</p>
+                <p style="font-size:13px;">
+                    Replace these sample contact details with your real company information.
+                </p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div>
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name"
+                               placeholder="Enter your name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email"
+                               placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <label for="service">Service Interested In</label>
+                <select id="service" name="service">
+                    <option value="">Choose a service</option>
+                    <option>Web Development</option>
+                    <option>UI/UX Design</option>
+                    <option>App Development</option>
+                    <option>AI Solutions</option>
+                    <option>Digital Marketing</option>
+                    <option>Cloud Solutions</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message"
+                          placeholder="Tell us about your project..."
+                          required></textarea>
+
+                <button class="btn" type="submit">Send Enquiry →</button>
+
+                <p id="formMessage" role="status" aria-live="polite"></p>
+                <p style="color:var(--muted);font-size:12px;margin-top:10px;">
+                    Demo form only. Your details are not sent or stored.
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-content">
+        <a href="#home" class="logo">NEX<span>ORA.</span></a>
+        <p>© <span id="currentYear"></span> Nexora. Sample company website.</p>
+        <a href="#home">Back to top ↑</a>
+    </div>
+</footer>
+
+<script>
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("active");
+    menuBtn.setAttribute("aria-expanded", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+// Close mobile menu after clicking a link
+document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+    });
+});
+
+// Animated statistics
+const counters = document.querySelectorAll("[data-target]");
+
+const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+            entry.target.dataset.animated = "true";
+
+            const target = Number(entry.target.dataset.target);
+            let current = 0;
+            const increment = Math.max(1, Math.ceil(target / 50));
+
+            const timer = setInterval(function () {
+                current = Math.min(current + increment, target);
+                entry.target.textContent =
+                    current + (target === 100 ? "%" : "+");
+
+                if (current >= target) {
+                    clearInterval(timer);
+                }
+            }, 30);
+        }
+    });
+}, { threshold: 0.5 });
+
+counters.forEach(function (counter) {
+    observer.observe(counter);
+});
+
+// Current year
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+// Contact form demonstration
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("formMessage");
+
+    if (!name) {
+        message.style.display = "block";
+        message.textContent = "Please enter your name.";
+        return;
+    }
+
+    message.style.display = "block";
+    message.textContent =
+        "Thank you, " + name +
+        "! This demo form works in your browser, but no message was sent. Connect a backend to receive enquiries.";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
